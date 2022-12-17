@@ -1,17 +1,18 @@
 const http = require('http');
 const fs = require('fs');
-const _ = require('lodash');
+const PORT = process.env.PORT || 3000;
+//const _ = require('lodash');
 
 const server = http.createServer((req, res) => {
     
     // lodash
-    const randomNumber = _.random(0, 9)
-    console.log(randomNumber);
+    // const randomNumber = _.random(0, 9)
+    // console.log(randomNumber);
     
-    const greet = _.once(() => {
-        console.log('hello');
-    });
-    greet()
+    // const greet = _.once(() => {
+    //     console.log('hello');
+    // });
+    // greet()
 
     // setting header content-type
     res.setHeader('Content-Type', 'text/html');
@@ -49,6 +50,7 @@ const server = http.createServer((req, res) => {
     })
 })
 
-server.listen(3000, 'localhost', () => {
-    console.log('listening for requests on port 3000')
+
+server.listen(PORT, () => {
+    console.log(`Server started on port ${PORT}...`)
 })
