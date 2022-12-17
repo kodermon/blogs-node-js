@@ -6,13 +6,14 @@ const blogRoutes = require('./routes/blogRoutes');
 require('dotenv').config();
 
 const app = express();
+const PORT = process.env.PORT || 3000;
 
 // register/set view engine
 app.set('view engine', 'ejs')
 
 // connect to MongoDB
 mongoose.connect(process.env.MONGO_URI)
-    .then((result) => app.listen(3000))
+    .then((result) => app.listen(PORT))
     .catch((err) => console.log(err))
 
 
